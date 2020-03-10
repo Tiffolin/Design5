@@ -1,0 +1,600 @@
+$colors:(
+    one: #2C249B,
+    darkOne:#1a207f,
+    lightOne: #486FDE,
+    two:#E11843,
+    three:#13C1CF,
+    darkThree:#005681,
+    four:white, 
+    five: #673AB7,
+    );
+@function color($color-name){
+    @return map-get($colors,$color-name)
+};
+
+$padding:15px;
+$borders:15px;
+$desktop:840px;
+$mobile:415px;
+// $minimobile:315px;
+@mixin desktop{
+    @media(min-width: #{$desktop}) {
+        @content;
+    }
+}
+@mixin mobile{
+    @media(max-width: #{$mobile}) {
+        @content;
+    }
+}
+// @mixin minimobile{
+//     @media(max-width: #{$minimobile}) {
+//         @content;
+//     }
+// }
+body,html{
+    height:100%;
+    overflow:auto;
+}
+
+/*=================
+splash page
+=================== */
+
+.window1 {
+    position:absolute;
+    top:15%;
+    left:10%;
+    background-image:url(style/image/otherBg/glittering.gif);
+    width: 220px;
+    height: 220px;
+    z-index: -1;
+    transform: rotate(45deg);
+    // border-radius: 50px 50px 50px;
+    // .windowpane {
+    //     position:relative;
+    //     top:0;
+    //     width: 200px;
+    //     height: 200px;
+    //     z-index: 2;
+    //     background:color(lightOne);
+    //     opacity:0;
+    // }
+
+    .windowpane2 {
+        position:relative;
+        top:0;
+        width: 180px;
+        height: 180px;
+        z-index: 5;
+        background-image:url(style/image/otherBg/blue.jpg);
+        border:1px solid color(lightOne);
+        opacity:1;
+
+    }
+  }
+
+.window2 {
+    position:absolute;
+    top:45%;
+    left:25%;
+    background-image:url(style/image/otherBg/blobs.jpg);
+    width: 120px;
+    height: 120px;
+    z-index: -1;
+    transform: rotate(225deg);
+    // border-radius: 50px 3px 10px;
+
+    // .windowpane4{
+    //     position:relative;
+    //     top:0;
+    //     width: 100px;
+    //     height: 100px;
+    //     z-index: 2;
+    //     background:color(two);
+    //     opacity:0.3;
+    //     border-radius: 50px 0 50px;
+    // }
+    .windowpane5{
+        position:relative;
+        top:0;
+        width: 112px;
+        height: 112px;
+        z-index: 5;
+        background-image:url(style/image/otherBg/glittering6.gif);
+        opacity:1;
+    }
+  }
+
+.window3{
+    position:absolute;
+    top:10%;
+    left:25%;
+    // background-image:url(style/image/otherBg/);
+    background:color(four);
+    border:1px solid color(lightOne);
+    width: 60px;
+    height: 60px;
+    z-index: -1;
+    transform: rotate(45deg);
+    // border-radius: 50px 0 0;
+
+    // .windowpane7{
+    //     position:relative;
+    //     top:0;
+    //     width: 30px;
+    //     height: 30px;
+    //     z-index: 2;
+    //     background:color(four);
+    //     opacity:0.3;
+    // }
+    .windowpane8{
+        position:relative;
+        top:0;
+        width: 40px;
+        height: 40px;
+        z-index: 5;
+        background-image:url(style/image/otherBg/blobs.jpg);
+        opacity:1;
+    }
+}
+
+.name{
+    position:fixed;
+    bottom:50px;
+    right:10%;
+    width: 300px;
+    z-index: 8;
+
+    @include mobile{
+        bottom:10px;
+        right:0;
+        left:12%;
+        width: 100px;
+    }
+        #firstName{
+            height:170px;
+            @include mobile{
+                height:100px;
+            }
+        }
+}
+
+/*=================
+Navigation
+=================== */
+// sns & contact nav bar
+.navigation{
+    position:absolute;
+    top:0;
+    right:0;
+    width: 50px;
+    height: 300px;
+        .arrow{
+        @include mobile{
+           margin-top:150px;
+        }
+            
+        }
+        .icons{
+            width:30px;
+            padding-top:5px;
+            padding-bottom:5px;
+        }
+        .icons:hover {
+            width:35px;
+            padding-top:0px;
+            padding-bottom:0px;
+          }
+}
+.bounce {
+    animation: bounce 3s;
+    animation-iteration-count: 3;
+}
+@keyframes bounce {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-12px);
+    }
+}
+//pages nav bar
+nav{
+    position:absolute;
+    bottom:0px;
+    text-align:right;
+    padding-right:20px;
+    padding-top:15px;
+    padding-bottom:0;
+    width: 100vw;
+    z-index:5;
+    // background:transparent;
+    // background:grey(0,0,0, .2);
+    // -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    // -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    // transition: all 0.4s ease 0s;
+    background:white;
+    opacity:0.8;
+
+
+    @include mobile{
+        text-align:center;
+        left:0;  
+        padding:0;
+        margin:0;
+        border:0;
+        padding-top:25px;
+        border-top: 100px;
+        background:white;
+    }
+        .pageNav{
+            height:25px;
+            padding-left:10px;
+            padding-right:10px;
+            padding-top:5px;
+            padding-bottom:5px;
+
+            @include mobile{
+                height:30px;
+                padding:10px;
+                margin:0;
+                border:0;
+            }
+        }
+        .back{
+            position:relative;
+            right:37%;
+            height:30px;
+            padding-top:5px;
+            padding-bottom:5px;
+
+            @include mobile{
+                left:0;
+                height:30px;
+                padding:10px;
+                margin:0;
+                border:0;
+            }
+
+        }
+
+}
+/*=================
+Page titles & other uniform styles
+=================== */
+.titleImg{
+    width:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.icons2{
+    width:30px;
+    border-top:5px;
+    border-bottom:5px;
+}
+.icons3{
+
+    bottom:0;
+    width:25px;
+    border-top:5px;
+    border-bottom:5px;
+}
+.icons4{
+    width:95px;
+    border-top:5px;
+    border-bottom:5px;
+    @include mobile{
+        width:60px;
+    }
+}
+/*=================
+About Page & Portfolio Page
+=================== */
+//container box for both about and Portfolio page
+#work{
+    margin-top:2%;
+    margin-left:2%;
+    width: 100%;
+    padding-bottom: 10%;
+    @include mobile{
+        margin-bottom:20%;
+        margin-left:0;
+        width: 100%;
+        padding-bottom:20%;
+    }
+    .subCon{
+        display:inline-block;
+        position: relative;
+        width: 40%;
+        padding:$padding;
+        @include mobile{
+            width: 85%;  
+            height: 200px;            
+        }
+            .projTitle{
+                text-align:center;
+                color: color(four);
+                font-weight: bold;
+                font-size:20px;
+                @include mobile{
+                    font-size:12px;
+                }
+            }
+
+    }
+    .subCon2{
+        display:inline-block;
+        text-align:center;
+        position: relative;
+        width: 40%;
+        padding:$padding;
+        @include mobile{
+            width: 85%;  
+            margin-bottom:0;
+        }
+    }
+}
+//project imgs for portfolio page
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    @include mobile{
+        border-radius: 5 5 5 5;
+        height: 150px; 
+    }
+  }
+// hide content of proj until mouse hovers
+.box{
+    transition: .5s ease;
+    display: block;
+    width: 93%;
+    height: 88%;
+    opacity: 0;
+    position: absolute;
+    top: 15px;
+    text-align: center;
+    background: black;
+    @include mobile{
+        border-radius: 5 5 5 5;
+        height: 150px; 
+    }
+    .text{
+        font-size: 16px;
+        padding:2px;
+        opacity:0.8;
+        color: white;
+        @include mobile{
+            font-size: 12px;
+        }       
+    }
+} 
+
+//profile img
+.imgCon{
+    text-align:center;
+    .profile{
+        width:80%;
+    
+        @include mobile{
+            width:70%;
+            margin-right: 10px;
+        }
+    }
+}
+
+//about me description area
+.aboutMe{
+    font-size: 14px;
+    text-align:left;
+    @include mobile{
+        border-right:18px;
+        margin-left:2%;
+        margin-right:10%;
+        width:80%;
+        margin-bottom:50%;
+    }
+}
+//resume download diamond icon
+.window5{
+    // background-image:url(style/image/otherBg/);
+    display:inline-block;
+    position: relative;
+    margin-left: 37%;;
+    background:color(four);
+    border:1px solid color(lightOne);
+    width: 40px;
+    height: 40px;
+    z-index: -1;
+    transform: rotate(45deg);
+    @include mobile{
+        margin-left: 35%;;
+        top:0;
+    }
+    // border-radius: 50px 0 0;
+
+    // .windowpane12{
+    //     position:relative;
+    //     top:0;
+    //     width: 30px;
+    //     height: 30px;
+    //     z-index: 2;
+    //     background:color(four);
+    //     opacity:0.3;
+    // }
+    .windowpane13{
+        position:relative;
+        top:0;
+        width: 20px;
+        height: 20px;
+        z-index: 5;
+        background-image:url(style/image/otherBg/blobs.jpg);
+        opacity:1;
+    }
+}
+//resume download word link
+.dl{    
+    display:block;
+    margin-left: 33%;
+    font-size:12px;
+    color:color(lightOne);
+    @include mobile{
+        margin-left: 20%;
+    }
+}
+
+/*=================
+Skills Page
+=================== */
+#skills{
+    margin-top:2%;
+    margin-left:2%;
+    width: 60%;
+    margin-bottom:20%;
+    @include mobile{
+        margin-top: 20%;
+        border-right:10px;
+        margin-left:2%;
+        margin-right:10%;
+        width:80%;
+        margin-bottom:50%;
+    }
+    .techImgTitle{
+        width: 20%;
+        display:block;
+        // border-bottom:2px solid color(two);
+        margin-left:35%;
+        margin-top:20px;
+        margin-bottom: 20px;
+        @include mobile{
+
+            margin-left:30%;
+            width: 60%;
+        }
+    }
+
+}
+//decoration box on Portfolio page
+.window4 {
+    position:absolute;
+    top:30%;
+    right:13%;
+    background-image:url(style/image/otherBg/blobs.jpg);
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    transform: rotate(225deg);
+    // border-radius: 10px 10px 10px;
+    opacity:0.8;
+    @include mobile{
+        top:2%;
+        left:43%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .windowpane10{
+        position:relative;
+        top:0;
+        width: 200px;
+        height: 200px;
+        z-index: 5;
+        background-image:url(style/image/otherBg/glittering.gif);
+        opacity:0.7;
+        border-radius: 50%;
+        @include mobile{
+            width: 50px;
+            height: 50px;
+        }
+    }
+  }
+/*=================
+All  Hover effects
+=================== */
+.pageNav:hover {
+    height:28px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:5px;
+    padding-bottom:5px;
+    @include mobile{
+        height:30px;
+        padding:10px;
+        margin:0;
+        border:0;
+        background:rgba(0,0,0, .2);
+    }
+}
+.back:hover {
+    height:35px;
+    padding-top:5px;
+    padding-bottom:5px;
+    @include mobile{
+        height:30px;
+        padding:10px;
+        margin:0;
+        border:0;
+        background:rgba(0,0,0, .2);
+    }
+}
+.icons2:hover {
+    width:45px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.icons3:hover {
+    width:50px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.container:hover .image {
+    opacity: 0.5;
+}
+.container:hover .box {
+    opacity: 0.7;
+    @include mobile{
+        opacity: 0.9;
+    }
+}
+.container:hover .techImg {
+    opacity: 0.6;
+}
+/*=================
+Page Transition
+=================== */
+// .pageOverlay{
+//     position:absolute;
+//     width: 100%;
+//     height:100%;
+//     background: red;
+//     left:0;
+//     top:0;
+//     transform: scale(0);
+//     transform-origin:left;
+// }
+
+// .transition-wipe{
+//     transition: .7s cubic-bezier(0,0,.58,1);
+//     transform: scaleX(0);
+// }
+
+// html.is-animating .transition-wipe{
+//     transform: scaleX(1);
+// }
+
+
+
+// .container:hover .techImg {
+//     opacity: 0.6;
+// }
